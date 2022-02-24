@@ -46,6 +46,7 @@ public class MainPage {
     public MainPage assertValue() {
         String value = "ГОТОВО";
         Assertions.assertEquals(assertValue.text(), value);
+        System.out.println("Статус задачи = " + value);
         return page(MainPage.class);
     }
 }
