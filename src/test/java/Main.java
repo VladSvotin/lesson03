@@ -42,8 +42,14 @@ public class Main {
         Selenide.open("https://edujira.ifellow.ru/secure/RapidBoard.jspa?rapidView=1&projectKey=TEST&view=planning&selectedIssue=TEST-2", MainPage.class)
                 .isOpened()
                 .compareTasks();
-
+        Selenide.open("https://edujira.ifellow.ru/browse/TEST-3012", MainPage.class)
+                .assertValue()
+                .isOpened();
     }
+
+
+
+
 
 
 }
