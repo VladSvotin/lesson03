@@ -24,6 +24,7 @@ public class MainPage {
     private SelenideElement assertValue;
 
 
+
     public MainPage isOpened() {
         header.exists();
         return page(MainPage.class);
@@ -43,10 +44,6 @@ public class MainPage {
         return page(MainPage.class);
     }
 
-    public MainPage assertValue() {
-        String value = "ГОТОВО";
-        Assertions.assertEquals(assertValue.text(), value);
-        System.out.println("Статус задачи = " + value);
-        return page(MainPage.class);
-    }
+
+
 }

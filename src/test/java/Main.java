@@ -15,11 +15,14 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class Main {
     String login = "svotVlad";
     String password = "123qaz!@#QAZ";
+    String nameTask = "taskVladSvotin";
+    String infoTask = "Новый баг";
+
 
     @BeforeAll
     static void Test2() {
         WebDriver driver;
-        System.setProperty("webdriver.chrome.driver" , "./src/test/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         WebDriverRunner.setWebDriver(driver);
@@ -32,24 +35,36 @@ public class Main {
     }
 
 
-
     @Test
     public void Test1() {
-        Selenide.open("https://edujira.ifellow.ru/login.jsp" , AutorizationPage.class)
-           .clicButtonLogIn()
-           .clicButtonPassword()
-           .clicButtonIn();
+        Selenide.open("https://edujira.ifellow.ru/login.jsp", AutorizationPage.class)
+                .clicButtonLogIn()
+                .clicButtonPassword()
+                .clicButtonIn();
         Selenide.open("https://edujira.ifellow.ru/secure/RapidBoard.jspa?rapidView=1&projectKey=TEST&view=planning&selectedIssue=TEST-2", MainPage.class)
                 .isOpened()
                 .compareTasks();
         Selenide.open("https://edujira.ifellow.ru/browse/TEST-3012", MainPage.class)
-                .assertValue()
                 .isOpened();
+
+
     }
 
 
+    @Test
+    public void Test6() {
+        Selenide.open("https://edujira.ifellow.ru/login.jsp", AutorizationPage.class)
+                .clicButtonLogIn()
+                .clicButtonPassword()
+                .clicButtonIn();
 
-
-
-
+        Selenide.open("https://edujira.ifellow.ru/", TaskPage.class)
+                .clicButtonIn()
+                .clicNameTask()
+                .clicInfo()
+                .clicSubmit()
+                .clicTaskLink()
+                .WorkTask();
+    }
 }
+
