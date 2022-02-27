@@ -35,14 +35,14 @@ public class TaskPage extends Main {
     public TaskPage clicNameTask() {
         NameTask.click();
         NameTask.sendKeys(nameTask);
-        System.out.println("Задано название задачи");
+        System.out.println("Именование задачи");
         return page(TaskPage.class);
     }
 
     public TaskPage clicInfo() {
         $(By.xpath("//*[@id='aui-uid-1']")).click();
         taskInfo.sendKeys(infoTask);
-        System.out.println("Задано описание задачи");
+        System.out.println("Описание задачи");
         return page(TaskPage.class);
     }
 
